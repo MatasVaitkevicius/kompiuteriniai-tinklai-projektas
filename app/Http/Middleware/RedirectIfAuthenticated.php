@@ -21,15 +21,15 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check() && auth()->user()->user_type == 'admin'){
+            if (Auth::guard($guard)->check() && auth()->user()->user_type == 'admin') {
                 return redirect(RouteServiceProvider::ADMIN);
             }
 
-            if (Auth::guard($guard)->check() && auth()->user()->user_type == 'director'){
+            if (Auth::guard($guard)->check() && auth()->user()->user_type == 'director') {
                 return redirect(RouteServiceProvider::DIRECTOR);
             }
 
-            if (Auth::guard($guard)->check() && auth()->user()->user_type == 'user'){
+            if (Auth::guard($guard)->check() && auth()->user()->user_type == 'user') {
                 return redirect(RouteServiceProvider::USER);
             }
         }

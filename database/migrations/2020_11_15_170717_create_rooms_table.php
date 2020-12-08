@@ -20,10 +20,8 @@ class CreateRoomsTable extends Migration
             $table->double('room_price', 8, 2);
             $table->boolean('wifi');
             $table->boolean('tv');
-            $table->date('arrival_time');
-            $table->date('departure_time');
-            $table->boolean('is_vacant');
-            $table->integer('reservation_count');
+            $table->integer('reservation_count')->default(0);
+            $table->text('img_url')->nullable();
         });
     }
 
